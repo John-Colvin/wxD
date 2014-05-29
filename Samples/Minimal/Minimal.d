@@ -20,7 +20,7 @@ import wx.wx;
 		{
 			About = MenuIDs.wxID_ABOUT,
 			Quit = MenuIDs.wxID_EXIT,
-			Dialog = MenuIDs.wxID_HIGHEST + 1
+			Dialog = cast(MenuIDs) (MenuIDs.wxID_HIGHEST + 1)
 		}
 
 		//---------------------------------------------------------------------

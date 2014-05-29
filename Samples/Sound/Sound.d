@@ -24,7 +24,7 @@ string WAV_FILE = "doggrowl.wav";
 			// menu items
 			Sound_Quit = MenuIDs.wxID_EXIT,
 			Sound_About = MenuIDs.wxID_ABOUT,
-			Sound_PlaySync = MenuIDs.wxID_HIGHEST + 1,
+			Sound_PlaySync = cast(MenuIDs) (MenuIDs.wxID_HIGHEST + 1),
 			Sound_PlayAsync,
 			Sound_PlayAsyncOnStack,
 			Sound_PlayLoop,
