@@ -1,9 +1,10 @@
-wxD - wxWidgets bindings for D language
+# wxD - wxWidgets bindings for D language
 
-	(c) 2005 BERO <berobero@users.sourceforge.net>
-	(c) 2010 afb <afb@users.sourceforge.net>
+(c) 2005 BERO <berobero@users.sourceforge.net>
 
-* About
+(c) 2010 afb <afb@users.sourceforge.net>
+
+## About
 
 wxD is wxWidgets bindings for the D programming language.
 
@@ -20,7 +21,7 @@ It is composed of two parts:
      class hierarchy, ported from wx.NET.
 
 
-* Status
+## Status
 
 0.16 (afb)
 Fixed building with LDC 0.9.2 and DMD 2.054
@@ -116,9 +117,9 @@ Currently only checked on Windows platform.
 Some example program crashed.
 
 
-* How to compile
+## How to compile
 
-** build wxWidgets
+### build wxWidgets
 
 - get wxWidgets-2.6.x
 - extract
@@ -140,7 +141,7 @@ macosx: (Xcode)
   cd src; open wxWindows.xcodeproj and "Build" /or/
   xcodebuild -target dynamic -configuration Deployment
 
-** build wxD
+### build wxD
 
 - extract
 - compile
@@ -167,7 +168,7 @@ Code::Blocks: (see http://codeblocks.org)
   codeblocks --build wxc.cbp
   codeblocks --build wxd.cbp
 
-* Linking
+### Linking
 
 When compiling programs using wxD, you need to make sure to include all of:
 wxd (D linkage), wxc (C linkage), wxWidgets (C++ linkage), stdc++ libraries
@@ -175,7 +176,7 @@ wxd (D linkage), wxc (C linkage), wxWidgets (C++ linkage), stdc++ libraries
 Unix systems can use the output from `wx-config --libs` to determine wx libs.
 Build systems should set up pragmas, in wx.libs module, by using "make build".
 
-* Naming rules
+## Naming rules
 
 - constant/enum wxXXXX is wxXXXX
 - class/method wxXXX is XXX
@@ -184,34 +185,37 @@ Build systems should set up pragmas, in wx.libs module, by using "make build".
   ex: void SetColour(wxColour)/wxColor GetColour() -> void colour(Color)/Colour colour()
 
 Point,Size,Rect is native D struct instead of wxWidgets struct.
-in D, struct can't have constructor.
-for convenience, use constructor like function:
+for convenience, use constructor like functions:
+```
  Point Point(int x,int y);
  Size  Size(int w,int h);
  Rect  Rect(int x,int y,int w,int h)
+```
 (Rect is an alias of Rectangle)
 
-    C++ API passing array and number of element change to passing array only.
-    D array knows number of element.
-    ex:
+C++ API passing array and number of element change to passing array only.
+D array knows number of element.
+ex:
 
-    wxListBox(wxWindow *parent, wxWindowID id,
-            const wxPoint& pos = wxDefaultPosition,
-            const wxSize& size = wxDefaultSize,
-    --->    int n = 0, const wxString choices[] = NULL,
-            long style = 0,
-            const wxValidator validator = wxDefaultValidator,
-            const wxString& name = wxListBoxNameStr)
+```
+wxListBox(wxWindow *parent, wxWindowID id,
+        const wxPoint& pos = wxDefaultPosition,
+        const wxSize& size = wxDefaultSize,
+--->    int n = 0, const wxString choices[] = NULL,
+        long style = 0,
+        const wxValidator validator = wxDefaultValidator,
+        const wxString& name = wxListBoxNameStr)
 
-    ListBox(Window parent, WindowID id,
-            Point pos = wxDefaultPosition,
-            Size size = wxDefaultSize,
-    -->     string choices[] = null,
-            long style = 0,
-            Validator validator = wxDefaultValidator,
-            string name = wxListBoxNameStr)
-   
-* Platforms
+ListBox(Window parent, WindowID id,
+        Point pos = wxDefaultPosition,
+        Size size = wxDefaultSize,
+-->     string choices[] = null,
+        long style = 0,
+        Validator validator = wxDefaultValidator,
+        string name = wxListBoxNameStr)
+```
+
+## Platforms
 
 When compiling wxD programs, you need to tell it which version of
 wxWidgets that you want (i.e. what platform you are targetting)
@@ -226,7 +230,7 @@ Macintosh      version=__WXMAC__
 
 For checking the wx platform at runtime, see the wxPlatform class.
 
-* Encodings
+## Encodings
 
 There are two ways to compile wxWidgets, as "ansi" or as "unicode"
 The former uses "char" characters, and the latter uses "wchar_t".
@@ -240,7 +244,7 @@ wx-config:     DFLAGS:
 
 The alias "string" is used in wxD, for char[] strings (UTF-8 format)
 
-* Licence
+## Licence
 
 wxD is licensed under the wxWindows Licence which is LGPL, with a
 special exception to allow distributing as a static linked binary.
@@ -255,13 +259,10 @@ wxWindows Licence is OSI approved Open Source:
 http://www.opensource.org/licenses/wxwindows.php
 
 
-* Acknowledgements
+## Acknowledgements
 
-- wxWidgets [http://www.wxwidgets.org/]
-- wx.NET [http://wxnet.sourceforge.net/]
-- DMD [http://www.digitalmars.com/d/]
-- GDC [http://dgcc.sourceforge.net/]
-- D [http://www.d-programming-language.org/]
-- gdcmac [http://gdcmac.sourceforge.net/]
-- gdcgnu [http://gdcgnu.sourceforge.net/]
-- gdcwin [http://gdcwin.sourceforge.net/]
+- [wxWidgets](http://www.wxwidgets.org/)
+- [wx.NET](http://wxnet.sourceforge.net/)
+- [GDC](http://gdcproject.org/)
+- [LDC](https://github.com/ldc-developers/ldc)
+- [D](https://dlang.org/)
